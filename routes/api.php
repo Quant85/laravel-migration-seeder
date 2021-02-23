@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/* Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+}); */
+
+Route::get('books', function (){
+    //dammi un file json
+    //restituiscimi una risposta in formato json
+    return response()->json([
+        //che cosa voglio mostrare
+        'success' => true,
+        'data' => App\Book::all()
+    ], 200);
 });
